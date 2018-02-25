@@ -103,7 +103,6 @@ li{
 	margin:0 auto;
 }
 .wrap{
-	width:100%;
 	border:1px solid rgba(0,0,0,0);
 }
 .Left{
@@ -223,6 +222,9 @@ li{
 .top_long{
 	width:150px;
 }
+.top_middle{
+	width:130px;
+}
 .top_style{
 	margin-left: 15px;
 	color:#4f94bc;
@@ -235,6 +237,7 @@ li{
 	display: block;
 	color:#3b3938;
 	margin:0 10px;
+	margin-top: 5px;
 	line-height:30px;
 	padding:0 5px;
 }
@@ -681,11 +684,20 @@ li{
 }
 .main_2 li{
 	float:left;
-	background-color: #1e5f99;
+	background-image: url(images/new_bg.jpg);
+	background-repeat: no-repeat;
+	background-position-y:-105px;
 	border-radius: 6px;
 	margin-left: 12px;
 	line-height: 56px;
 	text-align: center;
+	box-shadow: 0 0 4px #000;
+}
+.main_2 li:hover{
+	background-position-y: -142px;
+}
+.main_2 li:hover a{
+	color:#fff;
 }
 .main_2 a{
 	display: block;
@@ -712,6 +724,8 @@ li{
 }
 .first_2{
 	height:390px;
+	background: -webkit-linear-gradient( 153deg, rgba( 255, 255, 255, 0.2) 5%,
+		rgba( 255, 255, 255, 0.1) 95%);
 }
 .main_3_top{
 	padding-left: 20px;
@@ -835,7 +849,7 @@ li{
 }
 .chose_list h4{
 	margin:5px 0;
-	color:#10161b;
+	color:#c7d5e0;
 }
 .chose_list p{
 	color:#7193a6;
@@ -872,7 +886,7 @@ li{
 	margin-right: 20px;
 }
 .chose_list .ste_num .right{
-	background-color: #202d39;	
+	background-color: rgba(0,0,0,0);	
 	position: relative;
 	top:-5px;
 	left:0;
@@ -1057,20 +1071,17 @@ h2{
 }
 .find{
 	background-color: #000;
-	width:100%;
 	height:200px;
 	margin-top: 3400px;
 	position: relative;
 }
 .find .left{
-	float:left;
 	padding-right:940px; 
 }
 .find .right{
 	position: absolute;
 	top:0;
 	right:80px;
-	float:left;
 	width:940px;
 }
 .find .border{
@@ -1084,7 +1095,7 @@ h2{
 	left:40%;
 }
 .now_find{
-	top:-10px;
+	top:-15px;
 	font-size:22px;
 }
 .now_see{
@@ -1119,13 +1130,11 @@ h2{
 	border-top: 1px solid #dd4012;
 }
 .copyright{
-	width:100%;
 	height:130px;
-	margin-left: -80px;
+	position: relative;
 }
 .copyright .left{
-	width:210px;
-	float:left;
+	padding-right:940px; 
 }
 .logoleft{
 	display: block;
@@ -1138,8 +1147,10 @@ h2{
 	left:0;
 }
 .copyright .right{
-	width:940px;
-	float:right;
+    position: absolute;
+    top: 0;
+    right: 80px;
+    width: 940px;
 }
 .copyright .copy{
 	width:650px;

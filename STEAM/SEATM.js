@@ -27,7 +27,7 @@ $(".autoplay .all_lbt").mouseenter(function(){
 		}
 		$liList.hide()
 		$liList.eq(min).fadeIn()
-	},500)
+	},1000)
 }).mouseleave(function(){
 		$(this).find(".min_lbt").fadeOut()
 		clearInterval(min_lbtAutoplay)
@@ -193,71 +193,16 @@ var $details = $(".details_1")
 $(".chose_list").mouseenter(function(){
 	$details.hide()
 	$(".chose_list").removeClass("chose_focus")
+	$(".chose_list").find("h4").removeClass("h4_focus")
+	$(".chose_list").find("p").removeClass("h4_focus")
 	for (var i = 0; i < $(".chose_list").length; i++) {
-		 $(".chose_list").eq(i).attr("index_4",i)
-		 b = $(this).attr("index_4")
-		 if (i == b) {
-		 	$details.eq(b).fadeIn("fast")
+		$(".chose_list").eq(i).attr("index_4",i)
+		b = $(this).attr("index_4")
+		if (i == b) {
+			$details.eq(b).fadeIn("fast")
 			$(".chose_list").eq(b).addClass("chose_focus")
-		 }
+			$(".chose_list").eq(b) .find("h4").addClass("h4_focus")
+			$(".chose_list").eq(b) .find("p").addClass("h4_focus")
+		}
 	}
 })
-// // 主图第四个轮播图逻辑
-// var $lbt_fourth = $(".main_5").find(".main_lbt_4")
-// var count_5 = $lbt_fourth.length
-// var $next_5 = $(".main_5").find(".next")
-// var $prev_5 = $(".main_5").find(".prev")
-// var $picList_5 = $lbt_fourth
-// var dot_5 = $(".main_5").find(".dot")
-// var $spanList_5 = $(".main_5 .dot").find(".span")
-// // 判断是否点击当前轮播图的下一张按钮
-// if ($next_5) {
-// 	next_go($next_5,count_5,$picList_5,$spanList_5)
-// } 
-// // 判断是否点击当前轮播图的上一张按钮
-// if ($prev_5) {
-// 	prev_go($prev_5,count_5,$picList_5,$spanList_5)
-// }
-// // 更新并判断是否在当前轮播图的小圆点
-// if ($(".main_5")) {
-// 	createdot(count_5,dot_5,$picList_5,$spanList_5,"index_5")
-// }
-// // 详情页————第一个轮播图逻辑
-// var $lbt_fifth = $(".main_7").find(".main_lbt_7")
-// var count_7 = $lbt_fifth.length
-// var $next_7 = $(".main_7").find(".next")
-// var $prev_7 = $(".main_7").find(".prev")
-// var $picList_7 = $lbt_fifth
-// var dot_7 = $(".main_7").find(".dot")
-// var $spanList_7 = $(".main_7 .dot").find(".span")
-// // 判断是否点击当前轮播图的下一张按钮
-// if ($next_7) {
-// 	next_go($next_7,count_7,$picList_7,$spanList_7)
-// } 
-// // 判断是否点击当前轮播图的上一张按钮
-// if ($prev_7) {
-// 	prev_go($prev_7,count_7,$picList_7,$spanList_7)
-// }
-// // 判断是否自动播放当前轮播图
-// if ($(".main_7")) {
-// 	autoplaypic($(".main_7"),$next_7)
-// }
-// // 详情页————第二个轮播图逻辑
-// var $lbt_sixth = $(".main_8").find(".main_lbt_8")
-// var count_8 = $lbt_sixth.length
-// var $next_8 = $(".main_8").find(".next")
-// var $prev_8 = $(".main_8").find(".prev")
-// var $picList_8 = $lbt_sixth
-// var x = 0
-// var moregame_lbt = document.getElementsByClassName("moregame_lbt")[0]
-// $next_8.click(function(){
-// 	x++
-// 	ml = parseInt(moregame_lbt.style.marginLeft)
-// 	if (x < (count_8)-3) {
-// 		moregame_lbt.style.marginLeft = ml + x*-205 + "px"
-// 	}
-// 	else{
-// 		x = 0
-// 		moregame_lbt.style.marginLeft = 0 + "px"
-// 	}
-// })
