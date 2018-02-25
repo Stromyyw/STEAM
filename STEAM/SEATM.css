@@ -1081,7 +1081,7 @@ h2{
 .find .right{
 	position: absolute;
 	top:0;
-	right:80px;
+	right:6%;
 	width:940px;
 }
 .find .border{
@@ -1149,7 +1149,7 @@ h2{
 .copyright .right{
     position: absolute;
     top: 0;
-    right: 80px;
+    right: 6%;
     width: 940px;
 }
 .copyright .copy{
