@@ -461,6 +461,9 @@ li{
 	z-index: 99;
 	display: none;
 }
+.min_lbt .lbt_pic .min_shows{
+	display: block;
+}
 .fast_lbt{
 	height:173px;
 }

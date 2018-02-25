@@ -13,46 +13,26 @@ $(".min_pic .min").mouseenter(function(){
 $(".min_pic .min").mouseleave(function(){
 	$play_pic.eq(a).removeClass("show")
 })
-// // 左边弹出层轮播图逻辑
-// function tclbt(arng7,arng8,arng9){
-// 	$liList = arng9
-// 	arng7.mouseenter(function(){
-// 		arng8.fadeIn()
-// 		min_autoplayTime = setInterval(function(){
-// 			min_autoplay()
-// 		},500)
-// 	})
-// 	arng7.mouseleave(function(){
-// 		arng8.fadeOut()
-// 		clearInterval(min_autoplayTime)
-// 	})
-// }
-// if ($(".main")) {
-// 	tclbt($(".autoplay"),$(".min_lbt_0"),$(".min_lbt_0 .lbt_pic li"))
-// }
-// if ($(".main")) {
-// 	tclbt($(".autoplay"),$(".min_lbt_1"),$(".min_lbt_1 .lbt_pic li"))
-// }
-var n = 0
-function min_autoplay(){
-	for (var i = 0; i < $liList.length; i++) {
-	$liList.hide()
-	}
-	if (n < $liList.length-1) {
-		n++
-		$liList.eq(n).fadeIn()
-		$liList.fadeOut()	
-	}
-	else{
-		n = 0
-		$liList.eq(n).fadeIn()
-		$liList.fadeOut()
-	}
-}
-
-
-// 第二种方法实现轮播图
-
+// 左边弹出层轮播图逻辑
+$(".autoplay .all_lbt").mouseenter(function(){
+	$(this).find(".min_lbt").fadeIn()
+	var $liList = $(this).find(".min_lbt .lbt_pic li")
+	min = 0
+	min_lbtAutoplay = setInterval(function(){
+		if(min < $liList.length - 1){
+			min++
+		}
+		else{
+			min = 0
+		}
+		$liList.hide()
+		$liList.eq(min).fadeIn()
+	},500)
+}).mouseleave(function(){
+		$(this).find(".min_lbt").fadeOut()
+		clearInterval(min_lbtAutoplay)
+		min = 0
+	})
 // 初始化索引值
 for (var i = 0; i < $(".autoplay").length; i++) {
 	var $all_lbtList =  $(".autoplay").eq(i).find(".all_lbt")
@@ -117,6 +97,21 @@ $(".next").click(function(){
 		}
 	}
 })
+// 自动播放逻辑函数
+function autoNext(){
+	$all_lbtList = $(".autoplay").eq(0).find(".all_lbt")
+	for (var i = 0; i < $all_lbtList.length; i++) {
+		if ($all_lbtList.eq(i).hasClass("focus")) {
+			if (i < $all_lbtList.length - 1) {
+				hideORfadeIn(i+1,$(".autoplay").eq(0).find(".next"))
+			}
+			else {
+				hideORfadeIn(0,$(".autoplay").eq(0).find(".next"))
+			}
+			break
+		}
+	}
+}
 // 小圆点点击事件
 $(".dot span").click(function(){
 	$all_lbtList = $(this).closest(".autoplay").find(".all_lbt")
@@ -130,14 +125,14 @@ $(".dot span").click(function(){
 })
 // // 自动播放逻辑
 var firstTime = setInterval(function(){
-	$(".next").click()
+	autoNext()
 },2000)
-$(".autoplay").mouseenter(function(){
+$(".autoplay").eq(0).mouseenter(function(){
 	clearInterval(firstTime)
 })
-$(".autoplay").mouseleave(function(){
+$(".autoplay").eq(0).mouseleave(function(){
 	firstTime = setInterval(function(){
-		$(".next").click()
+		autoNext()
 	},2000)
 })
 // 第二个轮播图倒计时事件
