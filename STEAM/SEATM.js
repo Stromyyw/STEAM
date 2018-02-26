@@ -1,3 +1,7 @@
+// 礼物卡小背景图逻辑
+for (var i = 0; i < $("i").length; i++) {
+	$("i").eq(i).css("background-position",i*-16 + "px" + " 0" )
+}
 // 右边小图片鼠标移上事件逻辑
 var $play_pic = $(".autoplay .left a")
 $(".min_pic .min").mouseenter(function(){
@@ -167,42 +171,42 @@ upDate()
 setInterval(function(){
 	upDate()
 },1000)
-// // 主图第三个轮播图逻辑
-// var $lbt_third = $(".main_3").find(".main_lbt_3")
-// var count_3 = $lbt_third.length
-// var $next_3 = $(".main_3").find(".next")
-// var $prev_3 = $(".main_3").find(".prev")
-// var $picList_3 = $lbt_third
-// var dot_3 = $(".main_3").find(".dot")
-// var $spanList_3 = $(".main_3 .dot").find(".span")
-// // 判断是否点击当前轮播图的下一张按钮
-// if ($next_3) {
-// 	next_go($next_3,count_3,$picList_3,$spanList_3)
-// } 
-// // 判断是否点击当前轮播图的上一张按钮
-// if ($prev_3) {
-// 	prev_go($prev_3,count_3,$picList_3,$spanList_3)
-// }
-// // 更新并判断是否在当前轮播图的小圆点
-// if ($(".main_3")) {
-// 	createdot(count_3,dot_3,$picList_3,$spanList_3,"index_3")
-// } 
 // tab选项卡逻辑
-var $details = $(".details_1")
-// console.log($details)
-$(".chose_list").mouseenter(function(){
+var $chose_liList = $(".main_4").find(".chose li")
+$chose_liList.click(function(){
+	$chose_liList.removeClass("focus")
+	$chose_liList.removeClass("chose_this")
+	hidetab()
+	$(".chose_whichone").removeClass("whichone_focus")
+	w = $(this).index()
+	$(".chose_whichone").eq(w).addClass("whichone_focus")
+	$chose_liList.eq(w).addClass("focus")
+	$chose_liList.eq(w).addClass("chose_this")
+	showtab(0)
+})
+var $details = $(this).closest(".chose_whichone").find(".details_1")
+var $this_chose_list = $(this).closest(".chose_whichone").find(".chose_list")
+function hidetab() {
 	$details.hide()
-	$(".chose_list").removeClass("chose_focus")
-	$(".chose_list").find("h4").removeClass("h4_focus")
-	$(".chose_list").find("p").removeClass("h4_focus")
-	for (var i = 0; i < $(".chose_list").length; i++) {
-		$(".chose_list").eq(i).attr("index_4",i)
+	$this_chose_list.removeClass("chose_focus")
+	$this_chose_list.find("h4").removeClass("h4_focus")
+	$this_chose_list.find("p").removeClass("h4_focus")
+}
+function showtab(argn_this) {
+	$details.eq(argn_this).fadeIn("fast")
+	$this_chose_list.eq(argn_this).addClass("chose_focus")
+	$this_chose_list.eq(argn_this) .find("h4").addClass("h4_focus")
+	$this_chose_list.eq(argn_this) .find("p").addClass("h4_focus")
+}
+$(".chose_list").mouseenter(function(){
+	$details = $(this).closest(".chose_whichone").find(".details_1")
+	$this_chose_list = $(this).closest(".chose_whichone").find(".chose_list")
+	hidetab()
+	for (var i = 0; i < $this_chose_list.length; i++) {
+		$this_chose_list.eq(i).attr("index_4",i)
 		b = $(this).attr("index_4")
 		if (i == b) {
-			$details.eq(b).fadeIn("fast")
-			$(".chose_list").eq(b).addClass("chose_focus")
-			$(".chose_list").eq(b) .find("h4").addClass("h4_focus")
-			$(".chose_list").eq(b) .find("p").addClass("h4_focus")
+			showtab(b)
 		}
 	}
 })
