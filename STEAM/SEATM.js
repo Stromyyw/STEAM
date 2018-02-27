@@ -210,3 +210,87 @@ $(".chose_list").mouseenter(function(){
 		}
 	}
 })
+// 详情页的轮播图逻辑
+$(".dot_min li").click(function(){
+	$all_lbtList = $(this).closest(".left_lbt").find(".main_lbt_7")
+	$all_lbtList.hide()
+	$dot_minList =$(this).closest(".dot_min").find("li")
+	$dot_minList.removeClass("dot_min_bd")
+	m = $(this).index()
+	for (var i = 0; i < $("li").length; i++) {
+		if($all_lbtList.eq(i).hasClass("focus")){
+			main_lbt_7(m,this)
+			break
+		}
+	}
+})
+function main_lbt_7(index,obj){
+	var $dot_minList = $(obj).closest(".left_lbt").find(".dot_min").find("li")
+	// 隐藏图片和小圆点颜色
+	$all_lbtList.hide()
+	$all_lbtList.removeClass("focus")
+	$dot_minList.removeClass("dot_min_bd")
+	// 显示图片和小圆点颜色
+	$all_lbtList.eq(index).addClass("focus")
+	$all_lbtList.eq(index).fadeIn()
+	$dot_minList.eq(index).addClass("dot_min_bd")
+}
+$(".game_next").click(function(){
+	var ml = parseInt($(".ul")[0].style.marginLeft)
+	$all_lbtList = $(this).closest(".left_lbt").find(".main_lbt_7")
+	for (var i = 0; i < $all_lbtList.length; i++) {
+		if ($all_lbtList.eq(i).hasClass("focus")) {
+			if ((i+1)%5 !== 0 && i !== 0 && i !== $all_lbtList.length-1) {
+				main_lbt_7(i+1,this)
+				break
+			}
+			if (i == 0) {
+				main_lbt_7(i+1,this)
+				break
+			}
+			if (i !== 0 && (i+1)%5 == 0 && i !== $all_lbtList.length - 1) {
+				main_lbt_7(i+1,this)
+				$(".ul")[0].style.marginLeft = ml - 600 + "px"
+				break
+			}
+			else {
+				main_lbt_7(0,this)
+				$(".ul")[0].style.marginLeft = 0 + "px"
+				break
+			}
+		}	
+	}
+})
+$(".game_prev").click(function(){
+	$all_lbtList = $(this).closest(".left_lbt").find(".main_lbt_7")
+	var ml = parseInt($(".ul")[0].style.marginLeft)
+	for (var i = 0; i < $all_lbtList.length; i++) {
+		if ($all_lbtList.eq(i).hasClass("focus")) {
+			if (i !== 0 && i%5 !== 0) {
+				main_lbt_7(i-1,this)
+				break
+			}
+			if (i == 0) {
+				main_lbt_7($all_lbtList.length - 1,this)
+				$(".ul")[0].style.marginLeft = -600 + "px"
+				break
+			}
+			if (i !== 0 && i%5 == 0) {
+				main_lbt_7(i-1,this)
+				$(".ul")[0].style.marginLeft =ml - (-600) + "px"
+				break
+			}
+		}	
+	}
+})
+var main_lbt_7autoplay = setInterval(function(){
+	$(".game_next").click()
+},2000)
+$(".game_bg .left_lbt").mouseenter(function(){
+	clearInterval(main_lbt_7autoplay)
+})
+$(".game_bg .left_lbt").mouseleave(function(){
+	main_lbt_7autoplay = setInterval(function(){
+		$(".game_next").click()
+	},2000)
+})
