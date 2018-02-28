@@ -250,12 +250,16 @@ $(".game_next").click(function(){
 			}
 			if (i !== 0 && (i+1)%5 == 0 && i !== $all_lbtList.length - 1) {
 				main_lbt_7(i+1,this)
-				$(".ul")[0].style.marginLeft = ml - 600 + "px"
+				$(".ul").eq(0).animate({
+					"marginLeft":-600
+				})
 				break
 			}
 			else {
 				main_lbt_7(0,this)
-				$(".ul")[0].style.marginLeft = 0 + "px"
+				$(".ul").eq(0).animate({
+					"marginLeft":0
+				})
 				break
 			}
 		}	
@@ -272,12 +276,16 @@ $(".game_prev").click(function(){
 			}
 			if (i == 0) {
 				main_lbt_7($all_lbtList.length - 1,this)
-				$(".ul")[0].style.marginLeft = -600 + "px"
+				$(".ul").eq(0).animate({
+					"marginLeft":-600
+				})
 				break
 			}
 			if (i !== 0 && i%5 == 0) {
 				main_lbt_7(i-1,this)
-				$(".ul")[0].style.marginLeft =ml - (-600) + "px"
+				$(".ul").eq(0).animate({
+					"marginLeft":ml + 600
+				})
 				break
 			}
 		}	
