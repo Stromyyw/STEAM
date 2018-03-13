@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Steam 登录页</title>
+	<script src="../killstrom.js"></script>
 	<script src="../jQurey.min.js"></script>
 	<link rel="stylesheet" href="SEATM.css">
 </head>
@@ -156,14 +157,20 @@
 						<div class="username">
 							<p>
 								Steam 账户名称<br>
-								<input type="text">
+								<input class="input name" type="text">
 							</p>
 						</div>
 						<div class="password">
 							<p>
 								密码<br>
-								<input type="password">
+								<input class="input pass" type="password">
 							</p>
+						</div>
+						<div class="cookies">
+
+							<input type="checkbox" id="seven" checked >
+							<span>7天内免登录</span>
+							<span class="cook">调试</span>
 						</div>
 						<button><a href="#">登录</a></button>
 					</div>	
@@ -286,6 +293,7 @@
 				</div>
 			</div>
 		</div>
-	</div>	
+	</div>
+	<script src="SEATM.js"></script>
 </body>
 </html>
