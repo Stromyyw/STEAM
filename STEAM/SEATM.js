@@ -326,6 +326,7 @@ window.onload = function(){
 
 // 首页第一个轮播图ajax
 function callbackfn(data){
+	thinkArr = ["好评如潮 ","特别好评 ","多半好评 ","褒贬不一 ","多半差评 ","差评如潮 ","无评论 "]
 	$imgUrl = $(".main_lbt_1").eq(0).find(".left").find("a").find("img")
 	$gameDetails = $(".main_lbt_1").eq(0).find(".left").find("#details")
 	$imgMinUrl = $(".main_lbt_1").eq(0).find(".right").find(".min_pic").find("img")
@@ -367,59 +368,16 @@ function callbackfn(data){
 			$gameDetails.eq(a).attr("href",bgUrl)
 			$imgSpan[0].style.backgroundImage = "url" + "(" + urlList[0] + ")"
 			$MingameDay.eq(0).html("发行于：" + arr[0] + "年" + arr[1] + "月" + arr[2] + "日")
-			if (gameThink == 1) {
-				$allpince.html("好评如潮 " + "(" + pince + ")")
-			}
-			if (gameThink == 2) {
-				$allpince.html("特别好评 " + "(" + pince + ")")
-			}
-			if (gameThink == 3) {
-				$allpince.html("多半好评 " + "(" + pince + ")")
-			}
-			if (gameThink == 4) {
-				$allpince.html("褒贬不一 " + "(" + pince + ")")
-			}
-			if (gameThink == 5) {
-				$allpince.html("多半差评 " + "(" + pince + ")")
-			}
-			if (gameThink == 6) {
-				$allpince.html("差评如潮 " + "(" + pince + ")")
-			}
-			if (gameThink == 7) {
-				$allpince.html("无评论 " + "(" + pince + ")")
+			for (var n = 1; n < 8; n++) {
+				if (gameThink == n) {
+					$allpince.html(thinkArr[n-1] + "(" + pince + ")")
+				}	
 			}
 			if (zhekouOr) {
 				$zheKou.html("-" + zhekouhow * 100 + "%")
 				$bottOld.html("￥" + bottOldNum)
 				$bottNow.html("￥" + bottNowNum)
 			}
-			// if (Win.length == 3) {
-			// 	$win[2].style.backgroundImage = "url" + "(" + "images/st.png" + ")"
-			// 	$win[1].style.backgroundImage = "url" + "(" + "images/ios.png" + ")"
-			// 	$win[0].style.backgroundImage = "url" + "(" + "images/win.png" + ")"
-			// }
-			// if (Win.length == 2) {
-			// 	if (Windows) {
-			// 		$win[0].style.backgroundImage = "url" + "(" + "images/win.png" + ")"	
-			// 	}
-			// 	if (MacOS) {
-			// 		$win[Win.length-1].style.backgroundImage = "url" + "(" + "images/ios.png" + ")"	
-			// 	}
-			// 	if (Steam) {
-			// 		$win[Win.length-1].style.backgroundImage = "url" + "(" + "images/st.png" + ")"	
-			// 	}
-			// }
-			// if (Win.length == 1) {
-			// 	if (Windows) {
-			// 		$win[0].style.backgroundImage = "url" + "(" + "images/win.png" + ")"	
-			// 	}
-			// 	if (MacOS) {
-			// 		$win[0].style.backgroundImage = "url" + "(" + "images/ios.png" + ")"	
-			// 	}
-			// 	if (Steam) {
-			// 		$win[0].style.backgroundImage = "url" + "(" + "images/st.png" + ")"	
-			// 	}
-			// }
 		}
 		for (var b = 0; b < 6; b++) {
 			$lableliList.eq(b).html(lableList[b])

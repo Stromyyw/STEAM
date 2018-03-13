@@ -1056,7 +1056,9 @@ li{
 h2{
 	color:#263645;
 	margin-top: 10px;
+	margin-bottom: 5px;
 	margin-left: 10px;
+	font-weight: normal;
 }
 .user p{
 	color:#c7d5e0;
