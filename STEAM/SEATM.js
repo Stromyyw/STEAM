@@ -35,7 +35,7 @@ window.onload = function(){
 				min = 0
 			}
 			$liList.hide()
-			$liList.eq(min).fadeIn()
+			$liList.eq(min).fadeIn()                                       
 		},1000)
 	}).mouseleave(function(){
 			$(this).find(".min_lbt").hide()
@@ -445,8 +445,7 @@ window.onload = function(){
 						"backgroundImage" : "url" + "(images/st.png)"
 					})
 				}
-			}
-			
+			}	
 			$gameName.html(Name)
 			$MingameName.html(Name)
 			$newmain_lbt_1.appendTo($(".main").find(".first"))

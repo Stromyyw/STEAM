@@ -37,7 +37,6 @@ li{
 	width:940px;
 	margin:0 auto;
 	padding-left: 250px;
-	overflow: hidden;
 }
 .logo{
 	float:left;
@@ -384,9 +383,15 @@ li{
 .Name{
 	font-size: 24px;
 	padding:5px 10px;
+	white-space:nowrap;
 }
 .Name a{
 	color:#fff;
+	display: block;
+	width:300px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 }
 .zhekou{
 	width:45px;
