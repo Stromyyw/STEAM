@@ -335,7 +335,7 @@ li{
 	height:353px;
 	display: none;
 }
-#shower{
+.shower{
 	display: block;
 }
 .main_lbt_1 .left{
@@ -443,7 +443,6 @@ li{
 	display: inline-block;
 	width:20px;
 	height:20px;
-	background-image: url(images/win.png);
 	background-repeat: no-repeat;
 	position: relative;
 	top:-40px;
@@ -457,10 +456,36 @@ li{
 	left:0;
 }
 .ios{
-	background-image: url(images/ios.png);
+	display: inline-block;
+	width:20px;
+	height:20px;
+	background-repeat: no-repeat;
+	position: relative;
+	top:-40px;
+	right:-250px;
+}
+.steam a{
+	width:20px;
+	height:20px;
+	position: absolute;
+	top:0;
+	left:0;
 }
 .steam{
-	background-image: url(images/st.png);
+	display: inline-block;
+	width:20px;
+	height:20px;
+	background-repeat: no-repeat;
+	position: relative;
+	top:-40px;
+	right:-250px;
+}
+.steam a{
+	width:20px;
+	height:20px;
+	position: absolute;
+	top:0;
+	left:0;
 }
 .arrows_prev{
 	position: absolute;
@@ -523,24 +548,31 @@ li{
 	display: none;
 }
 .min_lbt img{
+	display: block;
 	width:260px;
+	height:164px;
 	margin-bottom: 10px;
 }
 .min_lbt .list li{
 	float:left;
 	font-size: 12px;
+	line-height: 16px;
+	margin-top: 2px;
 }
 .days_game{
 	margin-top: 20px;
 	margin-bottom: 10px;
 }
 .speak{
-	background-color: #999;
+	background-color: #888;
 	width:100%;
 	border-radius: 4px;
 }
 .speak p{
-	padding:0px 10px;
+	padding:0px 5px;
+}
+.speak span{
+	padding:0px 5px;
 }
 .biaoqian p{
 	margin-top: 5px;
@@ -558,7 +590,10 @@ li{
 .dot{
 	position: absolute;
 	bottom:-20px;
-	right:50%;
+	left:45%;
+}
+.dot_1{
+	left: 35%;
 }
 .dot span{
 	float: left;
