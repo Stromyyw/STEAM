@@ -79,3 +79,30 @@ function removeCookie(attrName){
 	document.cookie = attrName + "=" + ";" + "expires=" + d
 }
 // cookie相关结束-------------------------------------------------------------//
+
+// 数字的断句
+function stopnum(arr){
+	// 声明一个空字符串用来存放筛选出来的数字
+	var newarr = ""
+	// 定义count为数字的总长度！！！不可以直接减1，减了之后会少循环一次
+	var count = arr.length
+	// 枚举num
+	for (var i = 0; i < count; i++) {
+		// 判断如果不为0并且取余3为0
+		if (i % 3 == 0 && i !== 0) {
+			// 则将num的第i个作为空字符串的一个数字，并且每次循环都要加上
+				// 之前筛选出来的数字
+			newarr = arr.charAt(count-i-1) + "," + newarr
+		}
+		// 如果不满足if语句的条件，则执行else
+		else{
+			// 同理，将num的第i个作为空字符串的一个数字，并且每次循环都要加上
+				// 之前筛选出来的数字
+			newarr = arr.charAt(count-i-1) + newarr
+		}
+		// ！！！if语句里面的newarr与else里面的newarr是互相继承的，不独立执行
+		// 所以不必担心两次循环出来的newarr不相同而影响结果
+		// 将新结果赋值给原数字
+		return newarr
+	}
+}
